@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body class="theme-light">
+    <div class="container">
+        <header>
+            <h1>Weather Out-Look</h1>
+            <button onclick="toggleTheme()">Switch Theme</button>
+        </header>
+
+        <div class="weather-info">
+            <h2>Current Weather in <span id="weather-name"></span></h2>
+            <p>Temperature: <span id="weather-temp"></span> °C</p>
+            <p>Condition: <span id="weather-condition"></span></p>
+            <p>Humidity: <span id="weather-humidity"></span>%</p>
+            <p>Wind Speed: <span id="weather-wind-speed"></span> m/s</p>
+            <p>Pressure: <span id="weather-pressure"></span> hPa</p>
+        </div>
+        
+        <div class="form-container">
+            <h3>Enter City</h3>
+            <form id="weather-form" method="POST" action="{% url 'check_weather' %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Check Weather</button>
+            </form>
+        </div>
+        
+
+        <!-- <div class="weather-info">
+            <h2>Current Weather in {{ weather.name }}</h2>
+            <p>Temperature: {{ weather.main.temperature }} °C</p>
+            <p>Condition: {{ weather.weather.0.description }}</p>
+            <p>Humidity: {{ weather.main.humidity }}%</p>
+            <p>Wind Speed: {{ weather.wind.speed }} m/s</p>
+            <p>Pressure: {{ weather.main.pressure }} hPa</p>
+        </div>
+
+        <div class="form-container">
+            <h3>Enter City</h3>
+            <form method="POST" action="{% url 'check_weather' %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Check Weather</button>
+            </form>
+        </div> -->
+
+        <section class="alerts">
+            <h3>Set Weather Alerts</h3>
+            <form method="POST" action="{% url 'add_alert' %}">
+                {% csrf_token %}
+                <input type="text" name="location" placeholder="Location" required>
+                <input type="text" name="alert_type" placeholder="Alert Type (e.g., Rain, Storm)" required>
+                <input type="number" name="threshold" placeholder="Threshold Value" required>
+                <input type="email" name="user_email" placeholder="Your Email" required>
+                <!-- <input type="number" name="temperature" placeholder="temperature" required>
+                <input type="text" name="condition" placeholder="condition" required>  -->
+                <button type="submit">Add Alert</button>
+            </form>
+        </section>
+    </div>
+
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle('theme-dark');
+        }
+        
+    document.getElementById('weather-form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the form from submitting the traditional way
+
+        const formData = new FormData(this); // Get form data
+        const url = this.action; // Get form action URL (which is your Django endpoint)
+        const csrfToken = formData.get('csrfmiddlewaretoken'); // Extract CSRF token
+
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'X-CSRFToken': csrfToken,
+                'Accept': 'application/json',
+            },
+            body: formData,
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Now we update the front-end with the data we received
+            document.getElementById('weather-name').textContent = "Your City";  // Customize or extract city from data
+            document.getElementById('weather-temp').textContent = data.temperature;
+            document.getElementById('weather-condition').textContent = data.condition;
+            // Assuming you will add more fields like humidity, wind speed, etc. in your backend
+            document.getElementById('weather-humidity').textContent = data.humidity || "N/A";
+            document.getElementById('weather-wind-speed').textContent = data.wind_speed || "N/A";
+            document.getElementById('weather-pressure').textContent = data.pressure || "N/A";
+        })
+        .catch(error => console.error('Error:', error));
+    });
+
+    </script>
+</body>
+</html>
