@@ -1,9 +1,76 @@
+/* Light Theme (default) */
 body {
     background-color: skyblue;
     color: #333;
     font-family: Arial, sans-serif;
     transition: background-color 0.3s, color 0.3s;
+    text-align: center; /* Ensures everything is centered */
 }
+
+.weather-info {
+    background-color: white; /* Keep light background for light theme */
+    color: #333; /* Dark text for readability */
+    border-radius: 10px;
+    text-align: center;
+    padding: 15px;
+    margin: 20px auto; /* Centers the box horizontally */
+    width: 50%; /* Adjusts width to ensure it’s not too wide */
+    box-shadow: 0 0 15px rgba(227, 5, 5, 0.2);
+    text-align: center; /* Aligns text within the box to the left */
+}
+
+/* Dark Theme */
+.theme-dark {
+    background-color: #333; /* Dark background */
+    color: white; /* Light text */
+    text-align: center; /* Ensures everything is centered */
+}
+
+.theme-dark .weather-info {
+    background-color: #444; /* Darker background for dark theme */
+    color: white; /* Light text for visibility */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2); /* Light shadow for contrast */
+    margin: 20px auto; /* Centers the box horizontally */
+    width: 50%;
+    text-align: center; /* Aligns text within the box to the left */
+}
+
+/* Styling for buttons and other elements */
+button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+input[type="text"] {
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 15%;
+}
+
+form {
+    text-align: center; /* Centers the form elements */
+}
+
+
+
+
+
+
+
+
+/* body {
+    background-color: skyblue;
+    color: #333;
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+}
+
 
 .theme-dark {
     background-color: #333;
@@ -31,4 +98,4 @@ button {
     padding: 10px;
     cursor: pointer;
     margin-top: 10px;
-}
+} */
