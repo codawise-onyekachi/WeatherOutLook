@@ -6,6 +6,18 @@ Weather Out-Look
     real-time weather updates, and more.
 
 
+Table of Contents
+    Features
+    Screenshots
+    Technology Stack
+    Installation
+    Usage
+    Project Structure
+    Key Files and Directories
+    Installation and Setup
+    Future Improvements
+
+
 Features
     1. Current Weather Information
     Displays weather details such as:
@@ -28,6 +40,17 @@ Features
     Includes error messages for invalid city inputs or connectivity issues.
 
 
+ Screenshots
+ ![image](https://github.com/user-attachments/assets/3183f2ec-ba8e-4fb6-99c8-ab281e5916f7)
+
+ ![image](https://github.com/user-attachments/assets/40c8e4dd-4d8b-4ddf-b017-4109391d57cb)
+
+ ![image](https://github.com/user-attachments/assets/3a519fe8-8c05-4f3e-90c1-c27e5f1b04bb)
+
+ ![image](https://github.com/user-attachments/assets/e03644af-2a9d-45a3-945c-afe941b99a44)
+
+
+
 Technology Stack
     Frontend: HTML, CSS, JavaScript, Bootstrap
     Backend: Python Django
@@ -37,6 +60,13 @@ Technology Stack
     Django Rest Framework (optional for future API functionality)
     Requests (for handling API requests)
     Geolocation API (if needed)
+
+
+Usage
+    Enter City: Type a city name in the input field and click on "Check Weather" to get the current weather details.
+    Theme Switcher: Click the "Switch Theme" button to toggle between light and dark modes.
+    Geolocation-based Weather: The app automatically detects your current location and displays the weather.
+    Weather Alerts: Set a custom weather alert for specific conditions by clicking on the "Set Weather Alerts" button.
 
 
 Project Structure
