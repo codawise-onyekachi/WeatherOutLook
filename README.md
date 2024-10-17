@@ -6,7 +6,11 @@ Weather Out-Look
     real-time weather updates, and more.
 
 
+
+
 Table of Contents
+
+
     Features
     Screenshots
     Technology Stack
@@ -17,8 +21,12 @@ Table of Contents
     Installation and Setup
     Future Improvements
 
+    
+
 
 Features
+
+
     1. Current Weather Information
     Displays weather details such as:
     Temperature in Celsius
@@ -39,8 +47,12 @@ Features
     7. Error Handling
     Includes error messages for invalid city inputs or connectivity issues.
 
+    
+
 
  Screenshots
+
+ 
  ![image](https://github.com/user-attachments/assets/3183f2ec-ba8e-4fb6-99c8-ab281e5916f7)
 
  ![image](https://github.com/user-attachments/assets/40c8e4dd-4d8b-4ddf-b017-4109391d57cb)
@@ -51,7 +63,13 @@ Features
 
 
 
+
+
+
+
 Technology Stack
+
+
     Frontend: HTML, CSS, JavaScript, Bootstrap
     Backend: Python Django
     APIs: OpenWeatherMap API (for weather data)
@@ -62,14 +80,21 @@ Technology Stack
     Geolocation API (if needed)
 
 
+
+
 Usage
+
+
     Enter City: Type a city name in the input field and click on "Check Weather" to get the current weather details.
     Theme Switcher: Click the "Switch Theme" button to toggle between light and dark modes.
     Geolocation-based Weather: The app automatically detects your current location and displays the weather.
     Weather Alerts: Set a custom weather alert for specific conditions by clicking on the "Set Weather Alerts" button.
 
 
+
+
 Project Structure
+
 
     WeatherOutLook/
     │
@@ -99,7 +124,11 @@ Project Structure
 
 
 
+
+
 Key Files and Directories
+
+
     settings.py: Contains the configuration for the project, such as API keys for OpenWeatherMap,
     installed apps, middleware, etc.
     urls.py: Maps URL paths to specific views within the app.
@@ -108,7 +137,11 @@ Key Files and Directories
     weather.html: Displays the current weather conditions and allows users to input cities and customize their view.
 
 
+
+
 Installation and Setup
+
+
     Step 1: Create a Project Folder
         Create a folder, WeatherOutLook for the project on your machine.
 
@@ -152,7 +185,11 @@ Installation and Setup
         Open your browser and navigate to http://127.0.0.1:8000/ to view the app.
 
 
+
+
 Future Improvements
+
+
     Integration of a weather forecast for upcoming days.
     Enhanced UI with animations for different weather conditions.
     Push notifications for severe weather alerts.
