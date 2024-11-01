@@ -34,3 +34,10 @@ class WeatherData(models.Model):
     wind_speed = models.FloatField()
     air_pressure = models.FloatField()
     timestamp = models.DateTimeField(auto_now_add=True)
+
+
+class Member(models.Model):
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
+    email = models.EmailField(max_length=100)
+    phone_number = models.IntegerField(max_length=50)

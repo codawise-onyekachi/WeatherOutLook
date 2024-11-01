@@ -36,10 +36,11 @@
 from django.shortcuts import render, redirect
 import requests
 from geopy.geocoders import Nominatim
-from .forms import LocationForm
-from .models import WeatherAlert
+from .forms import LocationForm, MemberForm
+from .models import WeatherAlert, Member
 from django.http import JsonResponse
 from django.conf import settings
+
 
 API_KEY = '798aec6504e12e9234e998db8e2be601'
 
@@ -128,3 +129,23 @@ def add_alert(request):
 
         WeatherAlert.objects.create(location=location, alert_type=alert_type, threshold=threshold, user_email=user_email)
         return redirect('index1')
+    
+
+def add_member(request):
+    if request.method =='POST':
+        form = MemberForm(request.POST)
+        if form.is_valid():
+            form.save()
+            #return redirect("/")
+            return redirect("membersList")
+        
+    else:
+        form = MemberForm()
+
+    return render(request, 'weatherapp/addMember.html', {'form': form})
+
+
+def members_list(request):
+    members = Member.objects.all()
+    return render(request, 'weatherapp/membersList.html', {'members': members})
+  
